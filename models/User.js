@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 // Require bcrypt
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 // User class extends Parent Model
 class User extends Model {
@@ -13,59 +13,75 @@ class User extends Model {
 
 // User table
 User.init(
-  // 1st Obj 
+  // 1st Obj
   {
     // `id` column
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     // `first_name` column
     first_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        // Will ONLY allow letters
+      type: DataTypes.STRING,
+      allowNull: false,
+      // Will ONLY allow letters
+      validate: {
         isAlpha: true,
+        max: 25,
+      },
     },
     // `last_name` column
     last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        // Will ONLY allow letters
+      type: DataTypes.STRING,
+      allowNull: false,
+      // Will ONLY allow letters
+      validate: {
         isAlpha: true,
+        max: 25,
+      },
+    },
+    // `email` column
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // Will ONLY allow letters
+      validate: {
+        isEmail: true,
+      },
     },
     // `password` column
     password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [8],
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8, 16],
+        isAlphanumeric: true,
       },
     },
     // `company` column
     company: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     // `profession` column
     profession: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     // `search` column
-    search: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    person_or_company: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     // `city` column
     city: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
-  // 2nd Obj   
+  // 2nd Obj
   {
     // Password Encryption
     hooks: {
@@ -74,7 +90,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },
@@ -82,7 +101,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 

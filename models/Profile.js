@@ -16,10 +16,16 @@ Profile.init(
     linked_in: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate:{
+          isURL: true
+        }
     },
     github: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate:{
+          isURL: true
+        }
     },
     user_id: {
         type: DataTypes.INTEGER,
