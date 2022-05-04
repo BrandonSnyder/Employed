@@ -64,11 +64,6 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    // `radius` column
-    radius: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
   },
   // 2nd Obj   
   {
