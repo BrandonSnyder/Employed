@@ -1,119 +1,70 @@
-const { Profile } = require("../models");
+const { Professionals } = require("../models");
+const bcrypt = require("bcrypt");
 
-const profData = [
+const professionalsData = [
   {
-    company: "Apple",
-    profession: "Artificial Intelligence Engineer",
-    person_or_company: "company",
-    city: "cupertino",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 1,
-  },
-  {
-    profession: "Web Developer",
-    person_or_company: "company",
-    city: "bentonville",
-    company: "Walmart",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 2,
-  },
-  {
-    profession: "Data Scientist",
-    person_or_company: "company",
-    city: "irving",
-    company: "Exxon Mobil",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 3,
-  },
-  {
-    profession: "Mobil Application",
-    person_or_company: "company",
-    city: "arlington",
-    company: "McKesson",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 4,
-  },
-  {
+    first_name: "Brandon",
+    last_name: "Snyder",
+    email: "brandon.snyder019@gmail.com",
+    password: "root123",
+    city: "atlanta",
     profession: "Full Stack Developer",
-    person_or_company: "company",
-    city: "seattle",
-    company: "Amazon",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
     github: "https://github.com/BrandonSnyder",
-    user_id: 5,
+    linked_in: "https://linkedin.com/in/brandonlsnyder",
   },
   {
-    profession: "Data Scientist",
-    person_or_company: "company",
-    city: "mountain view",
-    company: "Google",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 6,
-  },
-  // professionals
-  {
+    first_name: "Carrington",
+    last_name: "Edmondson",
+    email: "mcarringtone@gmail.com",
+    password: "root123",
+    city: "atlanta",
     profession: "Full Stack Developer",
-    person_or_company: "person",
-    city: "Atlanta",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
     github: "https://github.com/BrandonSnyder",
-    user_id: 7,
+    linked_in: "https://linkedin.com/in/brandonlsnyder",
   },
   {
+    first_name: "James",
+    last_name: "Edwards",
+    email: "edwards.econn@gmail.com",
+    password: "root123",
+    city: "atlanta",
     profession: "Full Stack Developer",
-    person_or_company: "person",
-    city: "Decatur",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
     github: "https://github.com/BrandonSnyder",
-    user_id: 8,
+    linked_in: "https://linkedin.com/in/brandonlsnyder",
   },
   {
+    first_name: "Eric",
+    last_name: "Hurst",
+    email: "Ericahurst77@gmail.com",
+    password: "root123",
     profession: "Full Stack Developer",
-    person_or_company: "person",
-    city: "Newnan",
-    profession: "Full Stack Developer",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 9,
-  },
-  {
-    profession: "Full Stack Developer",
-    person_or_company: "person",
     city: "Suwanee",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
     github: "https://github.com/BrandonSnyder",
-    user_id: 10,
+    linked_in: "https://linkedin.com/in/brandonlsnyder",
   },
-  {
-    profession: "Data Scientist",
-    person_or_company: "person",
-    city: "Los Angeles",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 11,
-  },
-  {
-    profession: "Artificial intelligence",
-    person_or_company: "person",
-    city: "Los Angeles",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 12,
-  },
-  {
-    profession: "Artificial intelligence",
-    person_or_company: "person",
-    city: "Los Angeles",
-    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
-    github: "https://github.com/BrandonSnyder",
-    user_id: 13,
-  },
+  // {
+  //   first_name: "Richard",
+  //   last_name: "Hendricks",
+  //   email: "EricH@piedpiper.com",
+  //   password: "root123",
+  // },
+  // {
+  //   first_name: "Gilfoyle",
+  //   last_name: "Starr",
+  //   email: "TheRealG@piedpiper.com",
+  //   password: "root123",
+  // },
+  // {
+  //   first_name: "Dinesh",
+  //   last_name: "Nanjiani",
+  //   email: "MrStealYourGirl@piedpiper.com",
+  //   password: "root123",
+  // },
 ];
-const seedProfiles = () => Profile.bulkCreate(profData);
+professionalsData.forEach(async (user) => {
+  user.password = await bcrypt.hash(user.password, 10);
+});
 
-module.exports = seedProfiles;
+const seedProfessionals = () => Professionals.bulkCreate(professionalsData);
+
+module.exports = seedProfessionals;

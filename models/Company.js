@@ -1,48 +1,23 @@
 const { Model, DataTypes } = require("sequelize");
-// Require bcrypt
-const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
-// User class extends Parent Model
-class User extends Model {
-  // Bcrypt
+// Profile class extends Parent Model
+class Company extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-// User table
-User.init(
-  // 1st Obj
+// Profile table
+Company.init(
   {
-    // `id` column
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    // `first_name` column
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      // Will ONLY allow letters
-      validate: {
-        isAlpha: true,
-        max: 25,
-      },
-    },
-    // `last_name` column
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      // Will ONLY allow letters
-      validate: {
-        isAlpha: true,
-        max: 25,
-      },
-    },
-    // `email` column
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -51,7 +26,6 @@ User.init(
         isEmail: true,
       },
     },
-    // `password` column
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -60,9 +34,17 @@ User.init(
         isAlphanumeric: true,
       },
     },
-    
+    // `company` column
+    company: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    // `city` column
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  // 2nd Obj
   {
     // Password Encryption
     hooks: {
@@ -82,9 +64,9 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "company",
   }
 );
 
-// Exporting User to index.js
-module.exports = User;
+// Exporting Profile to index.js
+module.exports = Company;

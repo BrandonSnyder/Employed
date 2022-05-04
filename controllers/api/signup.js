@@ -1,46 +1,53 @@
 const router = require("express").Router();
-const { User, Profile } = require("../../models");
+const { Company, Professionals } = require("../../models");
 
-// with Auth is logged in !!
+// if statement for user vs Company 
 // router.get("/", async (req, res) => {});
-router.post("/", async (req, res) => {
-  try {
-    const newUser = await User.create({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password: req.body.password,
-      linked_in: req.body.linked_in,
-      github: req.body.github,
-      user_id: req.body.user_id,
-      profession: req.body.profession,
-      person_or_company: req.body.person_or_company,
-      city: req.body.city,
-    });
-    
-    req.session.save(() => {
-      req.session.userId = newUser.id;
-      req.session.username = newUser.username;
-      req.session.loggedIn = true;
+  router.post("/professional", async (req, res) => {
+    try {
+      const newUser = await Professionals.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        linked_in: req.body.linked_in,
+        github: req.body.github,
+        city: req.body.city,
+        profession: req.body.profession,
+      });
+      req.session.save(() => {
+        req.session.userId = newUser.id;
+        req.session.username = newUser.username;
+        req.session.loggedIn = true;
+  
+        res.json(newUser);
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-      res.json(newUser);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// company signup post request
 
-//
-// router.post('/', withAuth, async (req, res) => {
-//     try {
-//       const newProfile = await User.create({
-//         ...req.body,
-//         user_id: req.session.user_id,
-//       });
-//       res.status(200).json(newProfile);
-//     } catch (err) {
-//       res.status(400).json(err);
-//     }
-//   });
+  router.post("/company", async (req, res) => {
+    try {
+      const newCompany = await Company.create({
+        company: req.body.company,
+        email: req.body.email,
+        password: req.body.password,
+        city: req.body.city,
+        
+      });
+      req.session.save(() => {
+        req.session.userId = newCompany.id;
+        req.session.username = newCompany.username;
+        req.session.loggedIn = true;
+  
+        res.json(newCompany);
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
