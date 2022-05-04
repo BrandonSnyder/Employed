@@ -16,10 +16,16 @@ Profile.init(
     linked_in: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate:{
+          isURL: true
+        }
     },
     github: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate:{
+          isURL: true
+        }
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -27,6 +33,26 @@ Profile.init(
             model: 'user',
             key: 'id',
         },
+    },
+    // `company` column
+    company: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    // `profession` column
+    profession: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    // `search` column
+    person_or_company: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    // `city` column
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
