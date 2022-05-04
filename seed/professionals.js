@@ -1,27 +1,119 @@
-const {Profile} = require('../models')
+const { Profile } = require("../models");
+
 const profData = [
-    {
-        "linked_in": "https://www.linkedin.com/in/brandonlsnyder/",
-        "github": "https://github.com/BrandonSnyder",
-        "user_id": 1
-    },
-    {
-        "linked_in": "https://www.linkedin.com/in/brandonlsnyder/",
-        "github": "https://github.com/BrandonSnyder",
-        "user_id": 2
-    },
-    {
-        "linked_in": "https://www.linkedin.com/in/brandonlsnyder/",
-        "github": "https://github.com/BrandonSnyder",
-        "user_id":  3
-    },
-    {
-        "linked_in": "https://www.linkedin.com/in/brandonlsnyder/",
-        "github": "https://github.com/BrandonSnyder",
-        "user_id": 4
-    }
-]
+  {
+    company: "Apple",
+    profession: "Artificial Intelligence Engineer",
+    person_or_company: "company",
+    city: "cupertino",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 1,
+  },
+  {
+    profession: "Web Developer",
+    person_or_company: "company",
+    city: "bentonville",
+    company: "Walmart",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 2,
+  },
+  {
+    profession: "Data Scientist",
+    person_or_company: "company",
+    city: "irving",
+    company: "Exxon Mobil",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 3,
+  },
+  {
+    profession: "Mobil Application",
+    person_or_company: "company",
+    city: "arlington",
+    company: "McKesson",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 4,
+  },
+  {
+    profession: "Full Stack Developer",
+    person_or_company: "company",
+    city: "seattle",
+    company: "Amazon",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 5,
+  },
+  {
+    profession: "Data Scientist",
+    person_or_company: "company",
+    city: "mountain view",
+    company: "Google",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 6,
+  },
+  // professionals
+  {
+    profession: "Full Stack Developer",
+    person_or_company: "person",
+    city: "Atlanta",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 7,
+  },
+  {
+    profession: "Full Stack Developer",
+    person_or_company: "person",
+    city: "Decatur",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 8,
+  },
+  {
+    profession: "Full Stack Developer",
+    person_or_company: "person",
+    city: "Newnan",
+    profession: "Full Stack Developer",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 9,
+  },
+  {
+    profession: "Full Stack Developer",
+    person_or_company: "person",
+    city: "Suwanee",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 10,
+  },
+  {
+    profession: "Data Scientist",
+    person_or_company: "person",
+    city: "Los Angeles",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 11,
+  },
+  {
+    profession: "Artificial intelligence",
+    person_or_company: "person",
+    city: "Los Angeles",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 12,
+  },
+  {
+    profession: "Artificial intelligence",
+    person_or_company: "person",
+    city: "Los Angeles",
+    linked_in: "https://www.linkedin.com/in/brandonlsnyder/",
+    github: "https://github.com/BrandonSnyder",
+    user_id: 13,
+  },
+];
 const seedProfiles = () => Profile.bulkCreate(profData);
 
 module.exports = seedProfiles;
-
