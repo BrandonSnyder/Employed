@@ -60,26 +60,7 @@ User.init(
         isAlphanumeric: true,
       },
     },
-    // `company` column
-    company: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    // `profession` column
-    profession: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    // `search` column
-    person_or_company: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    // `city` column
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    
   },
   // 2nd Obj
   {
