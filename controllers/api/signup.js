@@ -3,6 +3,8 @@ const { Company, Professionals } = require("../../models");
 
 // if statement for user vs Company 
 // router.get("/", async (req, res) => {});
+
+// 3rd api `localhost:3001/api/sign-up/professional`
   router.post("/professional", async (req, res) => {
     try {
       const newUser = await Professionals.create({
@@ -28,7 +30,7 @@ const { Company, Professionals } = require("../../models");
   });
 
 // company signup post request
-
+// 3rd api `localhost:3001/api/sign-up/company`
   router.post("/company", async (req, res) => {
     try {
       const newCompany = await Company.create({
