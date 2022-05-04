@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Company, Professionals } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// 3rd url `localhost:3001/api/signed-in-LP/company`
 router.get("/company", async (req, res) => {
   try {
     const postData = await Company.findAll({
