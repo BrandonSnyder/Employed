@@ -3,6 +3,23 @@ const { Company, Professionals } = require("../../models");
 
 // if statement for user vs Company 
 // router.get("/", async (req, res) => {});
+router.get("/professional", async (req, res) => {
+  res.render("professionalsignup");
+  console.log("i made it this far");
+});
+
+
+router.get("/company", async (req, res) => {
+  res.render("companysignup");
+  console.log("i made it this far");
+});
+
+
+
+
+
+
+
 
 // 3rd api `localhost:3001/api/sign-up/professional`
 // WORKS

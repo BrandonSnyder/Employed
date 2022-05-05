@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Company, Professionals } = require("../../models");
 
-
+// 
 // render home 1st page
 router.get('/', async (req, res) => {
   const companyData = await Company.findAll().catch((err) => { 
