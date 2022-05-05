@@ -1,58 +1,28 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { Company, Professionals } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', async (req, res) => {
+// 3rd url `localhost:3001/api/signed-in-LP/company`
+// WORKS (Displays main.handlebar)
+router.get("/company", async (req, res) => {
   try {
-    const newUser = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    });
-
-    req.session.save(() => {
-      req.session.userId = newUser.id;
-      req.session.username = newUser.username;
-      req.session.loggedIn = true;
-
-      res.json(newUser);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post('/login', async (req, res) => {
-  try {
-    const user = await User.findOne({
+    const postData = await Company.findAll({
       where: {
-        username: req.body.username,
+        id: req.session.id,
       },
     });
-
-    if (!user) {
-      res.status(400).json({ message: 'No user account found!' });
-      return;
-    }
-
-    const validPassword = user.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: 'No user account found!' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.userId = user.id;
-      req.session.username = user.username;
-      req.session.loggedIn = true;
-
-      res.json({ user, message: 'You are now logged in!' });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
+    res.render("login", {
+      layout: "main",
+      posts,
     });
   } catch (err) {
-    res.status(400).json({ message: 'No user account found!' });
+    res.redirect("login");
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/company/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
