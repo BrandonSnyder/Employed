@@ -1,0 +1,285 @@
+:root{
+  --text: #112b3c;
+  --primary: #205375;
+  --secondary: #f66b0e;
+  --light: #efefef;
+}
+
+body{
+  max-width: 1200px;
+  background-color: var(--text);
+  padding: 30px;
+  margin: auto;
+}
+/* start bootstrap nav bar */
+#bootnavbar{
+  background-color: #205375;
+}
+/* end bootstrap nav bar */
+
+/* start nav bar */
+.hero{
+  background-color: #205375;
+  width: 100%;
+  height: 80px;
+  display:flex;
+  justify-content: space-between;
+}
+.app-title a{
+  text-decoration: none;
+  margin: 10px;
+  font-weight: bolder;
+  color: black;
+}
+#navbar-list-so{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+#navbar-list-so a{
+  text-decoration: none;
+  margin: 20px;
+  font-weight: bolder;
+  color: black;
+}
+
+
+/* end nave bar */
+.container-login{
+  background-color: var(--light);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding: 20px;
+  border: 4px solid var(--secondary) ;
+  border-radius: 15px ;
+}
+.login-card{
+  margin: auto;
+}
+#login-form{
+  margin: auto;
+  width: 50%;
+}
+#login-btn{
+  display: flex;
+  margin: 10px auto;
+}
+#signup-btn{
+  display: block;
+  text-align: center;
+}
+.logindata{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px ;
+}
+/* ------ end of login css -------- */
+/* --- start of sign up css */
+
+#signup-form{
+  background-color: var(--light);
+  margin: 50px auto ;
+  padding:30px;
+  width: 80%;
+  border: 30px solid var(--secondary) ;
+  border-radius: 15px ;
+}
+
+#form-header{
+  text-align: center;
+}
+#selectOne{
+  margin:0;
+}
+.question{
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto ;
+  width: 80%;
+}
+
+#q1 p{
+  display: flex;
+  flex-direction: row;
+}
+#notmatching{
+  color: red;
+  display: none;
+}
+
+
+#submit-btn{
+  display: block;
+  margin: 40px auto 0 ;
+}
+
+/* ---end of sign up css */
+
+/* start map */
+#location-map{
+  display: flex;
+  background-color: #f66b0e;
+  justify-content: space-around;
+  margin: 20px;
+  border-radius: 15px;
+}
+#location-map img{
+  width: 400px;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+/* end map */
+
+/* start user card Styling */
+user-card-section{
+  display: block;
+  width: 80%;
+  margin: 20px;
+}
+.section-user-card{
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto ;
+  padding: 20px;
+  background-color: #efefef;
+  border: 4px solid var(--secondary) ;
+  border-radius: 15px ;
+}
+/* end logged in card Styling */
+
+/* start company card Styling */
+#query-card-section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.section-company-card{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px ;
+  padding: 20px;
+  background-color: #efefef;
+  border: 4px solid var(--secondary) ;
+  border-radius: 15px ;
+}
+.company-card-img-top{
+  width: 200px;
+  margin: auto auto 20px;
+  border-radius: 15px;
+}
+
+.company-card-title{
+  display: block;
+  text-align: center;
+}
+.company-card-text{
+  display: block;
+  text-align: center;
+}
+
+/* end of company card styling */
+
+/* professional card Styling */
+#query-card-section{
+  background-color: #205375;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 15px;
+  margin: 20px;
+}
+.section-professional-card{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px ;
+  padding: 20px;
+  background-color: #efefef;
+  border: 4px solid var(--secondary) ;
+  border-radius: 15px ;
+}
+.professional-card-img-top{
+  width: 200px;
+  margin: auto auto 20px;
+  border-radius: 15px;
+}
+
+.professional-card-title{
+  display: block;
+  text-align: center;
+}
+.professional-card-text{
+  display: block;
+  text-align: center;
+}
+
+/* end of professional card styling */
+
+
+/* ------ start of card css -------- */
+.contributor-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #f66b0e;
+  border-radius: 15px;
+  margin: 20px;
+}
+.section-card{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px ;
+  padding: 20px;
+  background-color: #efefef;
+  border: 4px solid var(--primary) ;
+  border-radius: 15px ;
+}
+.section-card-img-top{
+  width: 200px;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.section-card-title{
+  display: block;
+  text-align: center;
+}
+.section-card-text{
+  display: block;
+  margin: auto;
+  height: 250px;
+  width: 80%;
+}
+.link-btn{
+  display: flex;
+  background-color: #112b3c;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: #efefef;
+}
+
+/* ------ end of card css ------*/
+/* ------ start of footer ------*/
+
+#footer{
+  background-color: #205375;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+}
+#footer-text{
+  display: block;
+  margin: auto;
+}
+
+/* ------ end of footer ------*/
