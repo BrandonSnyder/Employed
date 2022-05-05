@@ -1,8 +1,15 @@
 const router = require("express").Router();
 const { Company, Professionals } = require("../../models");
 
+
+// render home 1st page
+router.get('/',  (req, res) => {
+res.render("login");
+});
 // 3rd api `localhost:3001/api/signed-out-LP/`
 // WORKS
+
+
 router.get("/", async (req, res) => {
   try {
     const signedOutData = await Company.findAll({});
