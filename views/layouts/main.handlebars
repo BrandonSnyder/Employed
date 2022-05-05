@@ -44,9 +44,11 @@
   </div>
   </nav>
 
-  <!--Showcase-->
-  <section class="bg-dark text-light p-5 test-center">
+<!--Showcase-->
+  <section class="bg-dark text-light p-5 test-center text-sm-start">
       <div class="container">
+       <div class="d-sm-flex align-items-center justify-content-between">    
+       </div>   
        <div class="d-sm-flex">
          <div>
           <h1>Your Place for developers by Location</h1>   
@@ -55,16 +57,20 @@
          </div>
         </div> 
        </div> 
-  </section>
+  </section> 
 
-  {{!-- PLACEHOLDER TO TEST MAP API --}}
-
-<div id="maps_container" class="modal-pane">
-        <!-- Will Contain Appended Content -->
-        <div id="map"></div>
-</div>
-
-  {{!-- PLACEHOLDER TO TEST MAP API --}}
+ <!-- Search Button--> 
+  <section class="bg-primary text-light p-5">
+      <div class="container">
+        <div class="d-md-flex justify-content-between align-items-center">
+         <h3 class="mb-3 mb-md-0"></h3>   
+         <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+            <button class="btn btn-dark btn-lg" type="button" id="button-addon2">Search</button>
+          </div>
+        </div>
+      </div>
+  </section>  
 
   <!-- Boxes -->
     <section class="p-5">
