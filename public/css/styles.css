@@ -7,11 +7,36 @@
 
 /* body */
 body{
-    max-width: 1200px;
+    max-width: 1600px;
     background-color: var(--text);
     padding: 30px;
     margin: auto;
 }
+/* start navbar */
+#bootnavbar{
+    background-color: #205375;
+    border-radius: 15px;
+  }
+/* end navbar */
+
+    /* start map */
+#location-map-section{
+    display: flex;
+    flex-direction: column;
+    background-color: #f66b0e;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 15px;
+  }
+  #location-map-section img{
+    margin: 20px;
+    border-radius: 15px;
+  }
+  
+  /* end map */
+
+
 /* ------ start of card css -------- */
 .section-card{
     width: 60%;
@@ -36,7 +61,7 @@ body{
 .section-card-text{
     display: block;
     margin: auto;
-    height: 250px;
+    height: 300px;
     width: 80%;
 }
 .link-btn{
@@ -50,6 +75,119 @@ body{
     color: #efefef;
 }
 
-
-
 /* ------ end of card css */
+/* professional card Styling */
+#query-card-section{
+    background-color: #205375;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 15px;
+    margin: 20px;
+  }
+  .section-professional-card{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px ;
+    padding: 20px;
+    background-color: #efefef;
+    border: 4px solid var(--secondary) ;
+    border-radius: 15px ;
+  }
+  .professional-card-img-top{
+    width: 200px;
+    margin: auto auto 20px;
+    border-radius: 15px;
+  }
+  
+  .professional-card-title{
+    display: block;
+    text-align: center;
+  }
+  .professional-card-text{
+    display: block;
+    text-align: center;
+  }
+  
+  /* end of professional card styling */
+/* start company card Styling */
+#query-card-section{
+    display: flex;
+    background-color: #205375;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 15px;
+  }
+  .section-company-card{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px ;
+    padding: 20px;
+    background-color: #efefef;
+    border: 4px solid var(--secondary) ;
+    border-radius: 15px ;
+  }
+  .company-card-img-top{
+    width: 200px;
+    margin: auto auto 20px;
+    border-radius: 15px;
+  }
+  
+  .company-card-title{
+    display: block;
+    text-align: center;
+  }
+  .company-card-text{
+    display: block;
+    text-align: center;
+  }
+  
+  /* end of company card styling */
+  /* ------ start of card css -------- */
+.contributor-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f66b0e;
+    border-radius: 15px;
+    margin: 20px;
+  }
+  .section-card{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px ;
+    padding: 20px;
+    background-color: #efefef;
+    border: 4px solid var(--primary) ;
+    border-radius: 15px ;
+  }
+  .section-card-img-top{
+    
+    margin: auto;
+    border-radius: 15px;
+  }
+  
+  .section-card-title{
+    display: block;
+    text-align: center;
+  }
+  .section-card-text{
+    display: block;
+    margin: auto;
+    height: 250px;
+    width: 80%;
+  }
+  .link-btn{
+    display: flex;
+    background-color: #112b3c;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #efefef;
+  }
