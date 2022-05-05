@@ -191,3 +191,18 @@ body{
     border-radius: 10px;
     color: #efefef;
   }
+  /* ------ start of footer ------*/
+
+#footer{
+    background-color: #205375;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+  }
+  #footer-text{
+    display: block;
+    margin: auto;
+  }
+  
+  /* ------ end of footer ------*/
