@@ -53,21 +53,43 @@
          <div>
           <h1>Your Place for developers by Location</h1>   
          </div> 
-         <img class="img-fluid w-40" src="images/google-earth.jpeg" alt="">
+
          </div>
         </div> 
        </div> 
   </section> 
+  
+    <section class="bg-dark text-light p-5 test-center text-sm-start">
+        <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">    
+        </div>   
+        <div class="d-sm-flex">
+
+<!-- MAP!!!!!!!!!!!!!!! -->
+          <div id="maps_container" class="modal-pane">
+          <!-- Will Contain Appended Content -->
+            <div id="map"></div>
+          </div>
+<!-- MAP!!!!!!!!!!!!!!! -->
+
+            </div>
+        </div> 
+        </div> 
+    </section> 
 
  <!-- Search Button--> 
   <section class="bg-primary text-light p-5">
       <div class="container">
         <div class="d-md-flex justify-content-between align-items-center">
-         <h3 class="mb-3 mb-md-0"></h3>   
+         <h3 class="mb-3 mb-md-0"></h3> 
+
+         <!-- INPUT FOR MAP -->
          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+            <input type="text" id="address_input" class="form-control" placeholder="Type address" aria-label="Type address" aria-describedby="button-addon2">
             <button class="btn btn-dark btn-lg" type="button" id="button-addon2">Search</button>
           </div>
+          <!-- INPUT FOR MAP -->
+
         </div>
       </div>
   </section>  
@@ -150,6 +172,10 @@
    
    
    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../../public/js/map-api.js"></script>
+    <!-- Google Maps API (MUST GO AT BOTTOM) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqrcwXMrIuoAuZmnuXhfdSRSvaUcea-k&callback=initMap&v=weekly" async></script>
+    <!-- Google Maps API (MUST GO AT BOTTOM) -->
 </body>
 </html>
