@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { Company } = require("../../models");
-const withAuth = require("../../utils/auth");
 
-// 3rd api `localhost:3001/api/sign-up/professional-search/
+// 3rd api `localhost:3001/api/sign-up/professional-search/`
+// DOES NOT WORK
 router.get("/", async (req, res) => {
   try {
     const signedOutData = await Company.findAll({});

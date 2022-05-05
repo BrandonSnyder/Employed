@@ -3,6 +3,7 @@ const { Company, Professionals } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // 3rd url `localhost:3001/api/signed-in-LP/company`
+// WORKS (Displays main.handlebar)
 router.get("/company", async (req, res) => {
   try {
     const postData = await Company.findAll({
@@ -20,6 +21,8 @@ router.get("/company", async (req, res) => {
     res.redirect("login");
   }
 });
+
+// GET professionals
 
 // logout route
 // router.post("/logout", (req, res) => {

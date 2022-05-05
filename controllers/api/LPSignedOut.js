@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Company, Professionals } = require("../../models");
 
 // 3rd api `localhost:3001/api/signed-out-LP/`
+// WORKS
 router.get("/", async (req, res) => {
   try {
     const signedOutData = await Company.findAll({});
@@ -13,6 +14,7 @@ router.get("/", async (req, res) => {
 
 // login post
 // 3rd api `localhost:3001/api/signed-out-LP/company/login`
+// WORKS ("You are now logged in!")
 router.post("/company/login", async (req, res) => {
   try {
     console.log(req.body.email);
@@ -48,6 +50,7 @@ router.post("/company/login", async (req, res) => {
 
 // professional login
 // 3rd api `localhost:3001/api/signed-out-LP/professionals/login`
+// WORKS ("You are now logged in!")
 router.post("/professionals/login", async (req, res) => {
   try {
     console.log(req.body.email);

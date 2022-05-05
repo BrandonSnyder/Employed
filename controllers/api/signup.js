@@ -5,6 +5,7 @@ const { Company, Professionals } = require("../../models");
 // router.get("/", async (req, res) => {});
 
 // 3rd api `localhost:3001/api/sign-up/professional`
+// WORKS
   router.post("/professional", async (req, res) => {
     try {
       const newUser = await Professionals.create({
@@ -31,6 +32,7 @@ const { Company, Professionals } = require("../../models");
 
 // company signup post request
 // 3rd api `localhost:3001/api/sign-up/company`
+// WORKS
   router.post("/company", async (req, res) => {
     try {
       const newCompany = await Company.create({
