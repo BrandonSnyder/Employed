@@ -1,0 +1,15 @@
+<div id="query-card-section">
+    {{#each professionals as |professional|}}
+    <div class="section-professional-card" style="width: 18rem;">
+      <img class="professional-card-img-top" src="/images/professionalimg.jpg" alt="Card image cap">
+      <div class="professional-card-body">
+        <h3 class="professional-card-title">{{professional.first_name}} {{professional.last_name}}</h3>
+        <p class="professional-card-text">{{professional.email}}</p>
+        <p class="professional-card-text">{{professional.city}}</p>
+        <p class="professional-card-text">{{professional.profession}}</p>
+        <a href="" class="link-btn">View LinkedIn</a>
+        <a href="" class="link-btn">View GitHub</a>      
+      </div>
+    </div>
+    {{/each}}
+  </div>

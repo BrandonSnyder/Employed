@@ -11,10 +11,10 @@
 </head>
 <!--Navbar-->
 <body>
-  
+
   <nav id="bootnavbar"class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a  href="#" class="navbar-brand">Employed</a>  
+      <a  href="/api/signed-out-LP" class="navbar-brand">Employed</a>  
       <button
          class="navbar-toggler"
          type="button"
@@ -27,74 +27,104 @@
       <div class="collapse navbar-collapse" id="navmenu">
        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-           <a href="#professional" class="nav-link">Professionals Searching</a>
+           <a href="/api/company-search" class="nav-link">Professionals Searching</a>
           </li>
           <li class="nav-item">
-            <a href="#logout" class="nav-link">Professional Login</a>
+            <a href="/api/company-search/login" class="nav-link">Professional Login</a>
             </li>
           <li class="nav-item">
-              <a href="#companies" class="nav-link">Companies Searching</a>
+              <a href="/api/professional-search" class="nav-link">Companies Searching</a>
           </li>
           <li class="nav-item">
-          <a href="#logout" class="nav-link">Company Login</a>
+          <a href="/api/professional-search/login" class="nav-link">Company Login</a>
           </li>
           <li class="nav-item">
-          <a href="#signup" class="nav-link">Signup</a>
+          <a href="/api/sign-up/professional" class="nav-link">Professional Signup</a>
+          </li>
+          <li class="nav-item">
+          <a href="/api/sign-up/company" class="nav-link">Company Signup</a>
           </li>
        </ul>
       </div>
     </div>
     </nav>
 {{!-- end of navbar --}}
-   <div class="contributor-container">
-    <div class="section-card" style="width: 18rem;">
-        <img class="section-card-img-top" src="/images/brandon.jpg" alt="Card image cap">
-        <div class="section-card-body">
-          <h3 class="section-card-title">Brandon Snyder</h3>
-          <p class="section-card-text">I'm a former NAVSEA Chief Test Engineer currently living in Atlanta. I am currently enrolled in a Full Stack Web Development bootcamp pivoting my career path into the field of software development and software project management.</p>
-          <a href="https://linkedin.com/in/brandonlsnyder" class="link-btn">View LinkedIn</a>
-          <a href="https://github.com/BrandonSnyder" class="link-btn">View GitHub</a>      
-        </div>
-      </div>
-        <div class="section-card" style="width: 18rem;">
-            <img class="section-card-img-top" src="/images/james.jpg" alt="Card image cap">
-            <div class="section-card-body">
-              <h3 class="section-card-title">James Edwards</h3>
-              <p class="section-card-text">Currently taking a Full-Stack coding boot camp at the Georgia Institute of Technology. Some previous work I've had was creating a static webpage for a small company in my home town. I like anime, history, and KPop.</p>
-              <a href="https://www.linkedin.com/in/james-edwards" class="link-btn">View LinkedIn</a>
-              <a href="https://github.com/jimbolikesgithub" class="link-btn">View GitHub</a>      
-            </div>
-          </div>
-          <div class="section-card" style="width: 18rem;">
-            <img class="section-card-img-top" src="/images/carrington.jpg" alt="Card image cap">
-            <div class="section-card-body">
-              <h3 class="section-card-title">Carrington Edmondson</h3>
-              <p class="section-card-text">My name is Carrington Edmondson. I’m an entry level web developer currently taking a full stack bootcamp course at Georgia Tech.</p>
-              <a href="https://www.linkedin.com/in/carrington-edmondson" class="link-btn">View LinkedIn</a>
-              <a href="https://github.com/mcarringtone" class="link-btn">View GitHub</a>      
-            </div>
-          </div>
-          <div class="section-card" style="width: 18rem;">
-            <img class="section-card-img-top" src="/images/eric.jpg" alt="Card image cap">
-            <div class="section-card-body">
-              <h3 class="section-card-title">Eric Hurst</h3>
-              <p class="section-card-text">My name is Eric Hurst, I am a veteran and retired Retired U.S. Marine. I am currently the owner and CEO of Royal Canarie car care, car detaining products. After my time in the Marine Corps I accepted a position as VP fir International Business Development Inc managing 2 manufacturing operations in China, Korea, and Duluth Ga. I am currently attending Georgia Tech full stack coding bootcamp to  change my career.</p>
-              <a href="https://www.linkedin.com/in/eric-hurst" class="link-btn">View LinkedIn</a>
-              <a href="https://github.com/Usmchurs" class="link-btn">View GitHub</a>      
-            </div>
-          </div>
-      </div>
 
-   {{!-- end of Contributor cards --}}
+{{!-- end of map --}}
+{{{body}}}
+
+
 <!-- footer -->
   <footer id="footer">
     <h3 id="footer-text">Thank you for visiting EMPLOYED!!</h3>
   </footer>
-  <!-- footer -->   
+  <!-- footer -->
+
+
+<script>
+ function initGoogle() {
+    // Location Object
+    var location = {
+        lat: 40.000,
+        lng: -79.000
+    }
+    // Creating INFO BASE (only 2 required)
+    var options = {
+        center: location,
+        zoom: 9
+    }
+    // Browser has geolocation support
+    if(navigator.geolocation) {
+      console.log('Geolocation is here')
+
+      // This will give a prompt to the browser (Success & Error callback)
+      navigator.geolocation.getCurrentPosition((loc) => {
+        // `.lat` links to the `lat` in `location`
+        location.lat = loc.coords.latitude;
+        // `.lng` links to the `lng` in `location`
+        location.lng = loc.coords.longitude;
+
+        // Write map (Success)
+        map = new google.maps.Map(document.getElementById("map"), options);
+      },
+      (err) => {
+        console.log('User clicked no')
+        // Write map (Error)
+        map = new google.maps.Map(document.getElementById("map"), options);
+      }
+      )
+    } else {
+      console.log('Geolocation is NOT supported')
+      // Write map
+      map = new google.maps.Map(document.getElementById("map"), options);
+    }
+
+    // Takes two args (HTML Element, Obj (for autocomplete options))
+    autocomplete = new google.maps.places.Autocomplete(document.getElementById("address_input"), {
+      componentRestriction: { 'country': ['us'] },
+      // When you autocomplete, you're getting the geolocation and formatted address (field of specified location)
+      fields: ['geometry', 'name'],
+      // Returns ONLY establishments
+      types: ['establishment']
+    });
+
+    autocomplete.addListener("place_changed", () => {
+      // Will GET current autocompleted place (becomes an obj)
+      const place = autocomplete.getPlace();
+      new google.maps.Marker({
+        position: place.geometry.location,
+        title: place.name,
+        map: map
+      })
+    });
+}
+// WORKS ^^ (Prompts the User for their location via browser prompt, then shows them their current location)
+</script>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../../public/js/map-api.js"></script>
     <!-- Google Maps API (MUST GO AT BOTTOM) -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqrcwXMrIuoAuZmnuXhfdSRSvaUcea-k&callback=initMap&v=weekly" async></script>
+    <!-- note: `&libraries=places` is necessary for autocomplete (importing 'places' library) -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqqrcwXMrIuoAuZmnuXhfdSRSvaUcea-k&libraries=places&callback=initGoogle"></script>
     <!-- Google Maps API (MUST GO AT BOTTOM) -->
 </body>
 </html>
