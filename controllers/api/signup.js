@@ -4,17 +4,33 @@ const { Company, Professionals } = require("../../models");
 // if statement for user vs Company 
 // router.get("/", async (req, res) => {});
 router.get("/professional", async (req, res) => {
-  res.render("professionalsignup");
-  console.log("i made it this far");
+  res.render("professionalsignup", {
+    layout: "login"
+  });
 });
-
 
 router.get("/company", async (req, res) => {
-  res.render("companysignup");
-  console.log("i made it this far");
+  res.render("companysignup", {
+    layout: "login"
+  });
 });
 
-
+router.post('/professional', async (req, res) => {
+  try {
+    const professionalData = await Professionals.create({
+        first_name: first_nameEl,
+        last_name: last_nameEl,
+        email: emailEl,
+        password: passwordEl,
+        linked_in: linkedinEl,
+        github: githubEl,
+        profession: professionEl
+    });
+    res.status(200).json(professionalData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 
 

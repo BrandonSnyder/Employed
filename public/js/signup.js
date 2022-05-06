@@ -37,10 +37,7 @@ const signupFormHandler = async function (event) {
       }),
       headers: { "Content-Type": "application/json" }, //Auth token here
     });
-  } else {
-    // add a hidden element that will show red if the passwords do not match
-    notmatchingEl.setAttribute(style, "display:block");
-  }
+  } 
 
   if (response.ok) {
     document.location.replace("/LPSignedIn");
@@ -50,5 +47,5 @@ const signupFormHandler = async function (event) {
 };
 
 document
-  .querySelector("#signupform")
+  .querySelector("#submit-btn")
   .addEventListener("submit", signupFormHandler);
