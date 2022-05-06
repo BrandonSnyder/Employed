@@ -21,14 +21,14 @@ router.get('/', async (req, res) => {
 // WORKS
 
 
-router.get("/", async (req, res) => {
-  try {
-    const signedOutData = await Company.findAll({});
-    res.status(200).json(signedOutData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const signedOutData = await Company.findAll({});
+//     res.status(200).json(signedOutData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // login post
 // 3rd api `localhost:3001/api/signed-out-LP/company/login`
